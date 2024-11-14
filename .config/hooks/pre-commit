@@ -1,0 +1,4 @@
+#!/bin/zsh
+export $(cat .config/dev.env | xargs)
+mysqldump --defaults-extra-file=.config/mysql.cfg --skip-extended-insert --no-tablespaces $DB_NAME > db-dump.sql
+git add db-dump.sql
